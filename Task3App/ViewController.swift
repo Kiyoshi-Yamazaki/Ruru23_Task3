@@ -21,8 +21,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
-        leftTextField.keyboardType = UIKeyboardType.numberPad
-        rightTextField.keyboardType = UIKeyboardType.numberPad
+        leftTextField.keyboardType = .numberPad
+        rightTextField.keyboardType = .numberPad
 
         leftSwichBtn.setOn(false, animated: false)
         rightSwichBtn.setOn(false, animated: false)
@@ -38,15 +38,16 @@ class ViewController: UIViewController {
         totalLabel.text = String(totalNum)
     }
 
-    func culculate(btnSwitch: UISwitch, textField: UITextField ) -> Int {
+    private func culculate(btnSwitch: UISwitch, textField: UITextField ) -> Int {
         var num = Int(textField.text ?? "") ?? 0
 
-        if btnSwitch.isOn {num = -num}
+        if btnSwitch.isOn {
+            num = -num
+        }
         return num
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
 }
